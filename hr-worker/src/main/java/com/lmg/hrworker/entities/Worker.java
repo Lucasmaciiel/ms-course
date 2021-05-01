@@ -1,4 +1,4 @@
-package entities;
+package com.lmg.hrworker.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Table(name = "hr_worker")
 public class Worker implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +17,7 @@ public class Worker implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private String name;
     private Double dailyIncome;
 
