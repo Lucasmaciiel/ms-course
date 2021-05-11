@@ -25,7 +25,16 @@ public class WorkerResources {
 	
     @Autowired
     private WorkerRepository repository;
-
+    
+    @org.springframework.beans.factory.annotation.Value("${test.config}")
+    private String testConfig;
+    
+    @GetMapping(value="/configs")
+    public ResponseEntity<Void> getConfigs(){
+    	logger.info("CONFIG = " + testConfig);
+        return ResponseEntity.noContent().build();
+    }
+    
     @GetMapping
     public ResponseEntity<List<Worker>> findAll(){
         List<Worker> list = repository.findAll();
